@@ -233,6 +233,10 @@ Run the playbook:
 ```bash
 ansible-playbook configure_sudo.yml
 ```
+Test the Syntax:
+```bash
+ansible-playbook configure_sudo --syntax-check
+```
 
 **Tips & Hints:**
 - The sudoers file should have permissions `0440` (read-only for owner and group)
