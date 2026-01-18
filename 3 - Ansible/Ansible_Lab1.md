@@ -156,14 +156,15 @@ Create `ansible.cfg` file:
 ```bash
 cat > /home/admin/mylabproject/ansible.cfg << 'EOF'
 [defaults]
-inventory = /home/admin/mylabproject/inventory
-remote_user = devops
-host_key_checking = False
-deprecation_warnings = False
+inventory= /home/admin/mylabproject/inventory
+remote_user= devops
+host_key_checking= False
+private_key_pass=Ansibles.pem
+deprecation_warnings= False
 
 [privilege_escalation]
-become = True
-become_method = sudo
+become= True
+become_method= sudo
 become_user = root
 become_ask_pass = False
 EOF
