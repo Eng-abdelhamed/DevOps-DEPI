@@ -1,0 +1,22 @@
+---
+- name: First Play Book To Create a User
+  hosts: managednode1
+  tasks:
+    - name: Creating user tarek
+      user:
+        name: tarek
+        uid: 4000
+        state: present
+    - name: Creating new File
+      file:
+        path: Playbookfile.yml
+        state: touch
+        owner: ec2-user
+        mode: 666
+- name: Third Playbook for Installing epel-release
+  hosts: all
+  tasks:
+    - name: Installing epel-release
+      yum:
+        name: epel-release
+        state: latest

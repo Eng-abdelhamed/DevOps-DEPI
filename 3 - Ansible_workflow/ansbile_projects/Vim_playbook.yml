@@ -1,0 +1,21 @@
+---
+- name: Creating Playbook for installing vim
+  hosts: all
+  tasks:
+   - name: Installing vim
+     yum:
+       name: vim
+       state: latest
+
+   - name: Installing Tree
+     yum:
+       name: tree
+       state: latest
+
+- name: git installation
+  hosts: all
+  tasks:
+    - name: Installing Git
+      yum:
+       name: git
+       state: latest
