@@ -1,9 +1,0 @@
----
-- name: Create user Task for managednode2
-  hosts: managednode2
-  tasks:
-    - name: Creating user Tarek For managednode2
-      user: 
-       name: Tarek
-       uid: 4000
-       state: present
