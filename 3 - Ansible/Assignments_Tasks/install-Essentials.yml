@@ -1,0 +1,10 @@
+---
+- name : Installing Packages Based on Variables Scopes
+  hosts: all
+  tasks:
+    - name: Using yum to install variable Packages
+      yum:
+        name:
+          - "{{first_pkg}}"
+          - "{{secound_pkg}}"
+        state: latest

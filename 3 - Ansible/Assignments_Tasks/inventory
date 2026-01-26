@@ -1,0 +1,2 @@
+managednode1 ansible_host=172.31.5.31
+managednode2 ansible_host=172.31.12.190
