@@ -21,12 +21,13 @@
            dest: "/tmp/remote/file"
    ```
 
-- **fetch** : Copy remote file to my control node and store them in file tree oraganized by host name
+- **fetch** : Copy remote file to my control node and store them in file tree oraganized by host name # hint: Destination must be Directory
   
    ```bash
         fetch:
           src: "/home/remotefile"
-          dest: "/tmp/localfile"
+          dest: "/tmp/localDirectory" 
+          # hint: Destination must be Directory
 
    ```
 
@@ -54,5 +55,43 @@
             removing last line and added an entire block
             remotly
           state: present
-
     ```
+
+------------------------------------------------------
+## Extra hand on Labs:
+### jinja2 Templates
+
+- **Jinja2** : tmeplate file is very powerful tool to autmoatic make host-specific configuration by the help  of ansible variables Facts , loops , Condition
+
+```bash
+{{ansible_managed}}
+This is my first jinja2 Template
+```
+```bash
+The linux Distro for this host {{inventory_hostname}} is {{ansible_facts['distribution]}}
+```
+``` bash
+playbook_variable= {{playbook_variable}}
+```
+--- 
+**If Statement in Jinja 2 Templates**
+
+- Using Condition and Loops: 
+
+  ```bash
+  {% if ansible_facts['memfree_mb'] > 1490 %}
+  System is IDLE and has enought memory
+  {% else %}
+  System is Busy
+  {% endif %}
+
+  ```
+
+  - loops:
+
+   ```bash
+  # IP HOSTNAME
+  {% for host in group['all'] %}
+  {{hostvars[host]['ansible_facts']['enp0s8']['ipv4']['address']}} {{hostvars[host]['ansible_facts']['hostname']}}
+  {% endfor %}
+   ```
