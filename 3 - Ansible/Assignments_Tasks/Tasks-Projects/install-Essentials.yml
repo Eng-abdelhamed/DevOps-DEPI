@@ -1,0 +1,16 @@
+---
+- name: Installing PKGs
+  hosts: all
+  become: true
+  vars:
+    host_Default_pkg:
+      managednode1:
+        - git
+        - docker
+    extra_packages: []
+
+  tasks:
+     - name: Instal pkg For {{ansible_hostname}}
+       ansible.builtin.package:
+         name: "{{host_Default_pkg['managednode1']}}"
+         state: latest

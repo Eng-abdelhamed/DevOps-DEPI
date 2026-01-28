@@ -1,0 +1,20 @@
+---
+- name: This Playbook For Task 2 Gathering Logs file from the Remote Managednode
+  hosts: all
+  vars:
+    local_link: ./varLog
+  tasks:
+    - name: Gathering Logs Files
+      ansible.builtin.find:
+        path: "/var/log/"
+        file_type: file
+        recurse: yes
+      register: play_result
+    - name: return value of the find
+      debug:
+        var: play_result
+    - name: Fetch Files to main repository
+      ansible.builtin.fetch:
+        src: "{{ item.path }}"
+        dest: "{{local_link}}/"
+      loop: "{{play_result.files}}"
