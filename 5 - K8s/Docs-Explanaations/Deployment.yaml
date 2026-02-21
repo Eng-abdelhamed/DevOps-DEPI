@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment # D must be Capital
+metadata:
+  name: Dolfined
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      env: prod
+  template:
+    metadata:
+      name: Dolfined
+      labels:
+        env: prod # this the label must be the same of the selector
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+    ports:
+    - containerPorts:
+      - 80
