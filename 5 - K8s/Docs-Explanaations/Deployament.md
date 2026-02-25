@@ -1,6 +1,6 @@
 # Kubernetes Deployment
 
-## 📌 What is a Deployment?
+##  What is a Deployment?
 
 A **Deployment** in Kubernetes is an object used to manage applications running in Pods.
 
@@ -14,7 +14,7 @@ It provides:
 
 ---
 
-## 🏗 Architecture
+## Architecture
 
 ```
 Deployment
@@ -30,7 +30,7 @@ Pods
 
 ---
 
-## 🚀 Example Deployment YAML
+##  Example Deployment YAML
 
 ```yaml
 apiVersion: apps/v1
@@ -54,7 +54,7 @@ spec:
 
 ---
 
-## 🔎 What This Does
+##  What This Does
 
 * Creates **3 replicas**
 * Runs **nginx container**
@@ -63,7 +63,7 @@ spec:
 
 ---
 
-## ⚙️ Common kubectl Commands
+##  Common kubectl Commands
 
 ### Create Deployment
 
@@ -109,7 +109,7 @@ kubectl rollout undo deployment nginx-deployment
 
 ---
 
-## 🔄 Rolling Update
+## Rolling Update
 
 Deployment updates Pods gradually without downtime.
 
@@ -128,7 +128,7 @@ It ensures:
 
 ---
 
-## 📈 Scaling
+##  Scaling
 
 To increase replicas:
 
@@ -140,7 +140,7 @@ Kubernetes automatically creates additional Pods.
 
 ---
 
-## 🛠 Why Use Deployment?
+##  Why Use Deployment?
 
 | Feature          | Supported |
 | ---------------- | --------- |
@@ -152,7 +152,7 @@ Kubernetes automatically creates additional Pods.
 
 ---
 
-## 🧠 Deployment vs Pod
+##  Deployment vs Pod
 
 | Pod                     | Deployment            |
 | ----------------------- | --------------------- |
@@ -163,7 +163,7 @@ Kubernetes automatically creates additional Pods.
 
 ---
 
-## 📌 Best Practices
+##  Best Practices
 
 * Use **Deployment** for stateless applications
 * Use **StatefulSet** for stateful applications (databases, etc.)
@@ -172,7 +172,7 @@ Kubernetes automatically creates additional Pods.
 
 ---
 
-## 📚 Summary
+##  Summary
 
 A Kubernetes Deployment is the standard way to run stateless applications in production. It provides scaling, self-healing, rolling updates, and rollback capabilities, making it essential for modern containerized applications.
 

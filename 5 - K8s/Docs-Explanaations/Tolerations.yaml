@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: Testpod
+  labels:
+    env: prod
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 80
+  tolerations:
+  - key: "color"
+    value: "blue"
+    operator: "Equal"
+    effect: "NoSchedule"
+
+# This Pod will tolerate any taint with the key "color" and value "blue".

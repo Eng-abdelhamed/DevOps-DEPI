@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dolfined-namespace
+
+# The namespace will be named "dolfined-namespace". Namespaces are used to organize resources in a Kubernetes cluster and to provide a scope for names. Resources in different namespaces can have the same name, but they are isolated from each other.
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-test
+  namespace: dolfined-namespace
+  labels:
+    tier: backend
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx
+    ports:
+    - containerPort: 80
+
+#  The Pod will be created in the "dolfined-namespace" namespace and will have the label "tier: backend". The container will run the nginx image and will listen on port 80.
