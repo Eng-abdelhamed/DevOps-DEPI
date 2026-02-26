@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: depideamon
+  labels:
+    app: depideamon
+spec:
+  selector:
+    matchLabels:
+      app: depideamon
+  template:
+    metadata:
+      labels:
+        app: depideamon
+    spec:
+      containers:
+      - name: nginx_img
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+
+# Create a DaemonSet that runs an nginx container on each node in the cluster. The DaemonSet ensures that there is a copy of the nginx container running on each node, providing a way to deploy a service across all nodes in the cluster.
