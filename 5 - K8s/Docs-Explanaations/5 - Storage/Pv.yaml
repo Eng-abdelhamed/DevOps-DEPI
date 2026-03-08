@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-dolfined
+spec:
+  # capacity: storage: 1Gi, 10Gi, 100Gi
+  capacity:
+    storage: 1Gi
+  # accessModes: ReadWriteOnce, ReadOnlyMany, ReadWriteMany
+  accessModes:
+  - ReadWriteOnce
+  #  persistentVolumeReclaimPolicy: Retain, Recycle, Delete
+  hostPath:
+    path: /data/dolfined
+    type: DirectoryOrCreate
