@@ -1,0 +1,55 @@
+# Makind the Storage Class
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: efs-sc
+provisioner: efs.csi.aws.com
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer
+parameters:
+  provisioningMode: efs-ap # efs-ap or efs-csi
+  fileSystemId: fs-xxxxxxx # the ID From AWS Console
+  directoryPerms: "700" # optional, default is 700
+---
+# Making the PVC
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: efs-pvc
+spec:
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: efs-sc
+---
+# Making the Deploymet
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: efs-deployment
+  labels:
+    app: efs-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: efs-app
+  template:
+    metadata:
+      labels:
+        app: efs-app
+    spec:
+      containers:
+      - name: efs-container
+        image: centos
+        command: [ "/bin/sh" ]
+        args: [ "-c", "while true; do echo hello world >> /data/file.txt ; sleep 10; done" ]
+        volumeMounts:
+        - name: efs-volume
+          mountPath: /data
+      volumes:
+      - name: efs-volume
+        persistentVolumeClaim:
+          claimName: efs-pvc
