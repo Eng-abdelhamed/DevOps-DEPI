@@ -11,7 +11,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   csi:
     driver: ebs.csi.aws.com
-    volumeHandle: aws-pv
+    volumeHandle: <EBS-HANDLE>
     fsType: ext4
 ---
 # Making the PVC
