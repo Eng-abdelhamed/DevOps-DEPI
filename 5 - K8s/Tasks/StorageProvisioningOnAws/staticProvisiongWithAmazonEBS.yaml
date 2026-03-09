@@ -1,0 +1,45 @@
+# Making a Static Pv
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: aws-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  csi:
+    driver: ebs.csi.aws.com
+    volumeHandle: <EBS-HANDLE>
+    fsType: ext4
+---
+# Making the PVC
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: aws-vpc
+spec:
+  volumeName: aws-pv
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+# Making the Pod
+apiVersion: v1
+kind: Pod
+metadata:
+  name: aws-pod
+spec:
+  containers:
+  - name: aws-container
+    image: nginx
+    volumeMounts:
+    - name: aws-volume
+      mountPath: /data
+  volumes:
+  - name: aws-volume
+    persistentVolumeClaim:
+      claimName: aws-vpc

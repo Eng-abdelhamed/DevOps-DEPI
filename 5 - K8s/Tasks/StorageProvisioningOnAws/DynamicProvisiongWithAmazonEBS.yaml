@@ -1,0 +1,39 @@
+# Making the StorageClass
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: aws-ebs-sc
+provisioner: ebs.csi.aws.com
+reclaimPolicy: Retain
+volumeBindingMode: WaitForFirstConsumer
+---
+# Makind the PVC
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: aws-pvc
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: aws-ebs-sc
+---
+# Making the Pod
+apiVersion: v1
+kind: Pod
+metadata:
+  name: aws-pod
+spec:
+  containers:
+  - name: aws-container
+    image: nginx
+    volumeMounts:
+    - name: aws-volume
+      mountPath: /data
+  volumes:
+  - name: aws-volume
+    persistentVolumeClaim:
+      claimName: aws-pvc
