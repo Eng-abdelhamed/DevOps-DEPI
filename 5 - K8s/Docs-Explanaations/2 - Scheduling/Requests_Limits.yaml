@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: resource-demo
+spec:
+  containers:
+  - name: resourcedome-cont
+    image: nginx:latest
+    resources:
+      requests:
+        memory: "128M"
+        cpu: "250m"
+      limits:
+        memory: "512Mi"
+        cpu: "500m"
+
+# Create a Pod that demonstrates the use of resource requests and limits. The container in the Pod requests 128MB of memory and 250m (0.25) CPU, and it has limits set to 512MB of memory and 500m (0.5) CPU. This configuration helps ensure that the container has the necessary resources to run while also preventing it from consuming too many resources on the node.
