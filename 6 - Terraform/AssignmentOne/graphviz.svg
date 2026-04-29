@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="458pt" height="44pt" viewBox="0.00 0.00 458.00 44.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 40)">
+<title>G</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-40 454.11,-40 454.11,4 -4,4"/>
+<!-- aws_instance.EC2 -->
+<g id="node1" class="node">
+<title>aws_instance.EC2</title>
+<polygon fill="none" stroke="black" points="450.11,-36 331.08,-36 331.08,0 450.11,0 450.11,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="390.59" y="-13.8" font-family="sans-serif" font-size="14.00">aws_instance.EC2</text>
+</g>
+<!-- aws_subnet.pub_sub -->
+<g id="node2" class="node">
+<title>aws_subnet.pub_sub</title>
+<polygon fill="none" stroke="black" points="295.08,-36 162.8,-36 162.8,0 295.08,0 295.08,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="228.94" y="-13.8" font-family="sans-serif" font-size="14.00">aws_subnet.pub_sub</text>
+</g>
+<!-- aws_instance.EC2&#45;&gt;aws_subnet.pub_sub -->
+<g id="edge1" class="edge">
+<title>aws_instance.EC2-&gt;aws_subnet.pub_sub</title>
+<path fill="none" stroke="black" d="M330.6,-18C322.81,-18 314.74,-18 306.7,-18"/>
+<polygon fill="black" stroke="black" points="306.93,-14.5 296.93,-18 306.93,-21.5 306.93,-14.5"/>
+</g>
+<!-- aws_vpc.main_Vpc -->
+<g id="node3" class="node">
+<title>aws_vpc.main_Vpc</title>
+<polygon fill="none" stroke="black" points="126.8,-36 0,-36 0,0 126.8,0 126.8,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="63.4" y="-13.8" font-family="sans-serif" font-size="14.00">aws_vpc.main_Vpc</text>
+</g>
+<!-- aws_subnet.pub_sub&#45;&gt;aws_vpc.main_Vpc -->
+<g id="edge2" class="edge">
+<title>aws_subnet.pub_sub-&gt;aws_vpc.main_Vpc</title>
+<path fill="none" stroke="black" d="M162.37,-18C154.45,-18 146.33,-18 138.31,-18"/>
+<polygon fill="black" stroke="black" points="138.58,-14.5 128.58,-18 138.58,-21.5 138.58,-14.5"/>
+</g>
+</g>
+</svg>
