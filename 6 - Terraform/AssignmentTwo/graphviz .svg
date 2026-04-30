@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="280pt" height="98pt" viewBox="0.00 0.00 280.00 98.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 94)">
+<title>G</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-94 275.71,-94 275.71,4 -4,4"/>
+<!-- aws_eip.eip -->
+<g id="node1" class="node">
+<title>aws_eip.eip</title>
+<polygon fill="none" stroke="black" points="82.48,-36 0,-36 0,0 82.48,0 82.48,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="41.24" y="-13.8" font-family="sans-serif" font-size="14.00">aws_eip.eip</text>
+</g>
+<!-- aws_iam_user.User -->
+<g id="node2" class="node">
+<title>aws_iam_user.User</title>
+<polygon fill="none" stroke="black" points="258.11,-90 132.08,-90 132.08,-54 258.11,-54 258.11,-90"/>
+<text xml:space="preserve" text-anchor="middle" x="195.1" y="-67.8" font-family="sans-serif" font-size="14.00">aws_iam_user.User</text>
+</g>
+<!-- aws_nat_gateway.natgw -->
+<g id="node3" class="node">
+<title>aws_nat_gateway.natgw</title>
+<polygon fill="none" stroke="black" points="271.71,-36 118.48,-36 118.48,0 271.71,0 271.71,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="195.1" y="-13.8" font-family="sans-serif" font-size="14.00">aws_nat_gateway.natgw</text>
+</g>
+<!-- aws_nat_gateway.natgw&#45;&gt;aws_eip.eip -->
+<g id="edge1" class="edge">
+<title>aws_nat_gateway.natgw-&gt;aws_eip.eip</title>
+<path fill="none" stroke="black" d="M118.17,-18C110.09,-18 102.02,-18 94.31,-18"/>
+<polygon fill="black" stroke="black" points="94.45,-14.5 84.45,-18 94.45,-21.5 94.45,-14.5"/>
+</g>
+</g>
+</svg>
