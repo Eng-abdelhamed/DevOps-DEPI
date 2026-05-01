@@ -1,0 +1,1 @@
+ami-051dc1a12dc7eab81 is the latest Amazon Linux 2 AMI ID in the us-east-1 region. The available availability zones in this region are: us-east-1a, us-east-1b, us-east-1c, us-east-1d, us-east-1e, us-east-1f.
